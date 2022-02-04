@@ -19,8 +19,8 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(optional = false, cascade = CascadeType.ALL)
-   @JoinColumn(name = "car_id")
+   @MapsId
+   @OneToOne
    private Car car;
 
    public User() {}
@@ -69,11 +69,6 @@ public class User {
 
    public void setCar(Car car) {
       this.car = car;
-   }
-
-   public void addCar(Car car) {
-      this.car = car;
-      car.setUser(this);
    }
 
    @Override
